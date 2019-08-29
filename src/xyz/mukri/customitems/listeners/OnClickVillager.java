@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import xyz.mukri.customitems.Core;
 import xyz.mukri.customitems.utils.CustomInventory;
+import xyz.mukri.customitems.utils.Utils;
 
 public class OnClickVillager implements Listener {
 
@@ -20,11 +21,15 @@ public class OnClickVillager implements Listener {
 	@EventHandler
 	public void onClickVillager(PlayerInteractEntityEvent e) {
 		if (e.getRightClicked() instanceof Villager) {
-			e.setCancelled(true);
+			Villager  v = (Villager) e.getRightClicked();
 			
-			Player p = e.getPlayer();
-			
-			CustomInventory.openStoreInv(p);
+			if (Utils.isVillagerInArea(v, plugin.loc1, plugin.loc2)) {
+				e.setCancelled(true);
+				
+				Player p = e.getPlayer();
+				
+				CustomInventory.openStoreInv(p);
+			}
 		}
 	}
 	

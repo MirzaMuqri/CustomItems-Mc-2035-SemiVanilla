@@ -18,8 +18,8 @@ public class CustomInventory {
 		Inventory inv = Bukkit.createInventory(null, 27, "§8Si Bagang Shop");
 		
 		
-		inv.addItem(createItem(Material.DIAMOND_AXE, 1, (short) 0, "§c§lWoodPecker", Arrays.asList("§7Extra Wood I", " ", "§cDo not repair or change the name", "§cof the items or it won't work!")));
-		
+		inv.setItem(0, createItem(Material.DIAMOND_AXE, 1, (short) 0, "§c§lWoodPecker", Arrays.asList("§7Extra Wood I", " ", "§cDo not repair or change the name", "§cof the items or it won't work!", " ", "§7Price: §a32 Gold Blocks")));
+		inv.setItem(1, createItem(Material.IRON_SWORD, 1, (short) 0, "§c§lLa Vitesse", Arrays.asList("§7Speed III", " ", "§cDo not repair or change the name", "§cof the items or it won't work!", " ", "§7Price: §a32 Gold Blocks")));
 		p.openInventory(inv);
 	}
 	

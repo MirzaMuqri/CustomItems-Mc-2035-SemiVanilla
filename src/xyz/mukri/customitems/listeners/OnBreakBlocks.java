@@ -2,7 +2,6 @@ package xyz.mukri.customitems.listeners;
 
 import java.util.Random;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -31,7 +30,7 @@ public class OnBreakBlocks implements Listener {
 		
 		if (items.getItemMeta().getDisplayName().equals("§c§lWoodPecker")) {
 			if (block == Material.OAK_LOG || block == Material.SPRUCE_LOG || block == Material.BIRCH_LOG || block == Material.JUNGLE_LOG || block == Material.ACACIA_LOG) {
-				boolean chance = getChance(100, 0, 20);
+				boolean chance = getChance(100, 0, 25);
 				
 				if (chance) {
 					e.getBlock().getLocation().getWorld().playSound(e.getBlock().getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 0.2f);
@@ -45,9 +44,7 @@ public class OnBreakBlocks implements Listener {
 	
 	public boolean getChance(int max, int min, int chance) {
 		int r = new Random().nextInt(max - min + 1) + min;
-		
-		Bukkit.broadcastMessage(r + " ");
-		
+				
 		if (chance >= r) {
 			return true;
 		}
