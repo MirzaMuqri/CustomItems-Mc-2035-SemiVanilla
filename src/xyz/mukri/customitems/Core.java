@@ -5,10 +5,12 @@ import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import xyz.mukri.customitems.customfunctions.CreeeperCustom;
+import xyz.mukri.customitems.customfunctions.DoorLock;
 import xyz.mukri.customitems.listeners.InventoryClick;
 import xyz.mukri.customitems.listeners.OnBreakBlocks;
 import xyz.mukri.customitems.listeners.OnClickItems;
 import xyz.mukri.customitems.listeners.OnClickVillager;
+import xyz.mukri.customitems.utils.CustomRecipe;
 import xyz.mukri.customitems.utils.PotionEffects;
 
 /*
@@ -36,6 +38,8 @@ public class Core extends JavaPlugin {
 		loc1 = new Location(Bukkit.getWorld("2035_smp"), -183, 63, 152);
 		loc2 = new Location(Bukkit.getWorld("2035_smp"), -178, 67, 146);
 		
+		CustomRecipe.addDoorRecipe();
+		
 		PotionEffects.giveEffects();
 	}
 	
@@ -49,6 +53,7 @@ public class Core extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new InventoryClick(this), this);
 		getServer().getPluginManager().registerEvents(new OnClickItems(this), this);
 		getServer().getPluginManager().registerEvents(new CreeeperCustom(this), this);
+		getServer().getPluginManager().registerEvents(new DoorLock(this), this);
 	}
 	
 	public static Core getInstance() {
