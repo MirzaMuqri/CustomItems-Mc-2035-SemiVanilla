@@ -22,11 +22,10 @@ public class OnClickVillager implements Listener {
 	public void onClickVillager(PlayerInteractEntityEvent e) {
 		if (e.getRightClicked() instanceof Villager) {
 			Villager  v = (Villager) e.getRightClicked();
-			
+			Player p = e.getPlayer();
+
 			if (Utils.isVillagerInArea(v, plugin.loc1, plugin.loc2)) {
 				e.setCancelled(true);
-				
-				Player p = e.getPlayer();
 				
 				CustomInventory.openStoreInv(p);
 			}

@@ -4,8 +4,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import xyz.mukri.customitems.customfunctions.CreeeperCustom;
 import xyz.mukri.customitems.listeners.InventoryClick;
 import xyz.mukri.customitems.listeners.OnBreakBlocks;
+import xyz.mukri.customitems.listeners.OnClickItems;
 import xyz.mukri.customitems.listeners.OnClickVillager;
 import xyz.mukri.customitems.utils.PotionEffects;
 
@@ -45,6 +47,8 @@ public class Core extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new OnClickVillager(this), this);
 		getServer().getPluginManager().registerEvents(new OnBreakBlocks(this), this);
 		getServer().getPluginManager().registerEvents(new InventoryClick(this), this);
+		getServer().getPluginManager().registerEvents(new OnClickItems(this), this);
+		getServer().getPluginManager().registerEvents(new CreeeperCustom(this), this);
 	}
 	
 	public static Core getInstance() {

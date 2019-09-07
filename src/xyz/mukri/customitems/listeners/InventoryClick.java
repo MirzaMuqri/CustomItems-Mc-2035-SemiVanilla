@@ -38,6 +38,11 @@ public class InventoryClick implements Listener {
 				int price = 32;
 				purchaseItems(p, price, e.getCurrentItem());
 			}
+			
+			if (e.getSlot() == 2) {
+				int price = 100;
+				purchaseItems(p, price, e.getCurrentItem());
+			}
 		}
 	}
 	
