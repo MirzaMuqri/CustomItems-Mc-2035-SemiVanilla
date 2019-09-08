@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import xyz.mukri.customitems.customfunctions.CreeeperCustom;
 import xyz.mukri.customitems.customfunctions.DoorLock;
+import xyz.mukri.customitems.files.DoorFile;
 import xyz.mukri.customitems.listeners.InventoryClick;
 import xyz.mukri.customitems.listeners.OnBreakBlocks;
 import xyz.mukri.customitems.listeners.OnClickItems;
@@ -26,6 +27,8 @@ public class Core extends JavaPlugin {
 	
 	public static Core instance;
 	
+	public DoorFile doorFile;
+	
 	//Shop Locations
 	public Location loc1;
 	public Location loc2;
@@ -38,8 +41,13 @@ public class Core extends JavaPlugin {
 		loc1 = new Location(Bukkit.getWorld("2035_smp"), -183, 63, 152);
 		loc2 = new Location(Bukkit.getWorld("2035_smp"), -178, 67, 146);
 		
-		CustomRecipe.addDoorRecipe();
+		doorFile = new DoorFile();
 		
+		if (!doorFile.isFileExists()) {
+			doorFile.createNewFile();
+		}
+		
+		CustomRecipe.addDoorRecipe();
 		PotionEffects.giveEffects();
 	}
 	

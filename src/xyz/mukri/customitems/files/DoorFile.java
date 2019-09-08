@@ -61,6 +61,20 @@ public class DoorFile {
 		config.set("door." + locationToString(loc), null);
 	}
 	
+	public boolean isDoorLocked(Location loc) {
+		if (config.isSet("door." + locationToString(loc))) {
+			return true;
+		}
+		
+		loc.add(0, -1, 0);
+		
+		if (config.isSet("door." + locationToString(loc))) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public String getDoorOwner(Location loc) {
 		return config.getString("door." + locationToString(loc) + ".owner");
 	}
@@ -71,11 +85,11 @@ public class DoorFile {
 	
 	// Functions that we need for this class
 	public String locationToString(Location loc) {
-        return loc.getWorld().getName() + ":" + loc.getBlockX() + ":" + loc.getBlockY() + ":" + loc.getBlockZ();
+        return loc.getWorld().getName() + "|" + loc.getBlockX() + "|" + loc.getBlockY() + "|" + loc.getBlockZ();
     }
 	
 	public Location stringToLocation(String s) {
-        String[] loc = s.split(":");
+        String[] loc = s.split("|");
         return new Location(Bukkit.getWorld(loc[0]), Integer.parseInt(loc[1]), Integer.parseInt(loc[2]), Integer.parseInt(loc[3]));
     }
 	

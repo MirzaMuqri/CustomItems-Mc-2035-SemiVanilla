@@ -14,7 +14,7 @@ public class CustomRecipe {
 	public static void addDoorRecipe() {
 		NamespacedKey lock = new NamespacedKey(Core.getInstance(), "lock_door");
 		
-		ItemStack item = new ItemStack(Material.IRON_DOOR);
+		ItemStack item = new ItemStack(Material.OAK_DOOR);
 		ItemMeta meta = item.getItemMeta();
 		
 		meta.setDisplayName("§cLockinator 6000");
@@ -25,7 +25,7 @@ public class CustomRecipe {
 		door.shape("   ", "TDT", " R ");
 		
 		door.setIngredient('T', Material.TRIPWIRE_HOOK);
-		door.setIngredient('D', Material.IRON_DOOR);
+		door.setIngredient('D', Material.OAK_DOOR);
 		door.setIngredient('R', Material.REDSTONE);
 		
 		Bukkit.addRecipe(door);
